@@ -24,22 +24,14 @@ if (r == 0 || r == 9 || c == 0 || c == 9)
 if (maze[r][c] == '.'||maze[r][c] == 'o')
 map.add(new Path(r, c));
 }
-} /*
- * for (int i = 0; i < map.size(); i++) { System.out.println("Starting Path: "
- * +map.get(i).getRow() + " " + map.get(i).getCol()); }
- */
+} 
 
 int count = Integer.MAX_VALUE;
 for (int i = 0; i < map.size(); i++) {
 int temp_count = steps(maze, visited, map.get(i).getRow(), map.get(i).getCol());
-//System.out.println("Temp count: " + temp_count);
-/*
- * for (int j = 0; j < maze.length; j ++) {
- * System.out.print(Arrays.toString(maze[j])); System.out.println(); }
- */
+
 if (temp_count < count)
 count = temp_count;
-//System.out.println("-------------------------------------------------");
 }
 
 System.out.println(count);
@@ -53,7 +45,6 @@ static int steps(char[][] arr, boolean[][] visited, int x, int y) {
 
 char[][] n_arr = arr.clone();
 boolean[][] n_visited = new boolean[arr.length][arr[0].length];
-//int step_counter = 1;//the step counter is best kept with each point visited.
 int[][] direction = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 Queue<int[]> line = new LinkedList<>();
 
@@ -69,11 +60,9 @@ int c = check[1] + direction[i][1];
 if (r >= 0 && c >= 0 && r < n_arr.length && c < n_arr[0].length && !n_visited[r][c]
 && n_arr[r][c] != '#') {
 if (n_arr[r][c] == 'o') {
-//step_counter++;
 return check[2]+1;
 }
-//n_arr[r][c] = '*';
-//step_counter++;
+
 n_visited[r][c] = true;
 line.add(new int[] { r, c, check[2]+1 });
 }
