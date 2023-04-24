@@ -5,7 +5,7 @@ public class IntToRoman {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
 		
-		Map<Integer, String> map = new LinkedHashMap<>();
+		Map<Integer, String> map = new LinkedHashMap<>(); // map with all of the values for Roman numerals 
 		map.put(1000, "M");
 		map.put(900, "CM");
 		map.put(500, "D");
@@ -20,9 +20,7 @@ public class IntToRoman {
 		map.put(4, "IV");
 		map.put(1, "I");
 		
-		
-		
-		
+
 		System.out.println("Enter an integer to convert to Roman numeral: ");
 		int intNum = scan.nextInt(); // scanning the integer 
 		
