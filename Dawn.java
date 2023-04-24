@@ -17,10 +17,6 @@ public class Dawn {
 			double profit = total-price;
 			System.out.printf("$%,12.2f  |%9.3f%%  |%5d  |  $%,9.2f  |%,12.2f  |  $%,12.2f\n",
 				price,rate1,year,mPay,total,profit	);
-			
-			
-
 		}
-
 	}
 }
