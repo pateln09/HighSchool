@@ -14,8 +14,8 @@ public class IntToRoman {
 		map.put(90, "XC");
 		map.put(50, "L");
 		map.put(40, "XL");
-        map.put(10, "X");
-        map.put(9, "IX");
+                map.put(10, "X");
+                map.put(9, "IX");
 		map.put(5, "V");
 		map.put(4, "IV");
 		map.put(1, "I");
@@ -37,7 +37,6 @@ public class IntToRoman {
 					roman+=value;
 				}
 				intNum = intNum%mp.getKey(); //gives the remaining value and keeps on going until less than 0
-				
 			}
 			
 		}
