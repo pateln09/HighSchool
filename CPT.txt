@@ -1,0 +1,52 @@
+import random # library built-in
+import colorama # libray built-in
+
+tries = 0 # counting attempts the user has to guess the right color
+
+
+# Procedure to check the proximity of the user inputted color to the random computer generated color
+def proximity(user_answer, computer_genrated): # comparing the index of user entered color to the computer generated color
+  index_user_color = random_colors.index(user) # index of user entered color
+  index_random_picker = random_colors.index(random_picker) # index of computer generated index
+  absolute = abs(index_random_picker-index_user_color) # subtracting the index of computer generated color to the user entered, also taking the absolute value after subtraction 
+  if absolute>= 6: # if the difference between index of computer generated color and user entered color is greater than or equal 6 it will execute this command
+    print(colorama.Style.BRIGHT, colorama.Fore.RED, "That is NOT the correct answer :( You are getting COLDER")
+  elif absolute < 6 and absolute >= 4: # if the difference between index of computer generated color and user entered color is less than 6 or greater than or equal to 4 it will execute this command
+    print(colorama.Style.NORMAL, colorama.Fore.RED, "That is NOT the correct answer :( You are getting COLD")
+  elif absolute <4 and absolute >=2: # if the difference between index of computer generated color and user entered color is less than 4 or greater than or equal to 2 it will execute this command
+    print(colorama.Style.NORMAL, colorama.Fore.YELLOW, "That is NOT the correct answer :( You are getting WARM")
+  elif absolute <2 and absolute >=1: # if the difference between index of computer generated color and user entered color is less than 2 or greater than or equal to 1 it will execute this command
+    print(colorama.Style.BRIGHT, colorama.Fore.YELLOW, "That is NOT the correct answer :( You are getting WARMER")
+  else:
+    print(colorama.Style.NORMAL,colorama.Fore.GREEN," That is correct")
+    # if the difference between index of computer generated color and user entered color is equal to 0 it will execute this command
+
+
+## List
+random_colors = ["white", "blue", "green", "red", "black", "pink", "brown", "orange", "yellow", "gray","purple"] #defining the random colors in a list
+
+
+## Intro
+print(colorama.Fore.YELLOW, "Welcome, in this game who will have 3 tries to guess the random color that the program has picked out from a list." ) #game intro, also changing color to yellow
+print (colorama.Fore.WHITE,"\n  The colors in that list include: \n  white, blue, green, red, black, pink, brown, orange, yellow, gray, purple \n \n *** Also the program will give you hints by telling you warm, warmer, cold, colder, depending on the proximity of your guess to the computer generated color from the list. For example, if the computer generated color is red, and you type in black then it would tell you that you are getting warmer.***") #game intro, also changing the color to white
+print(colorama.Fore.MAGENTA, "\n***ONLY THE SPELLING OF THE COLORS MATTER, NOT THE CAPITALIZATION SO IT DOESN'T MATTER IF YOU CAPITALIZE THE COLOR NAME OR NOT.*** ") # game requirements, also changing the color to magenta
+
+random_picker = (random.choice(random_colors)) # randomly choosing a color from the list (random_colors)
+
+print(colorama.Fore.CYAN) # changing text color to cyan
+name = input("What is your name? ") # asking user for their name
+user = input 
+
+# Evaluating the user's guess
+while user != random_picker and tries != 3: # excueting this satement only if the user guess is not correct
+    tries = tries + 1 # adding 1 to tries if user guesses the color wrong
+    print(colorama.Fore.CYAN) ## changing color to cyan
+    user = str(input(name + ", what is the random primary color that the program is guessing? "))
+    user = user.casefold()
+    proximity (user,random_picker)
+
+if user == random_picker and tries <= 3: # excueting this statement only if the user has not complete all of their tries
+    print(colorama.Fore.GREEN,name+", it took you "+ str(tries)+" tries to find the right answer.") # printing the amount of tries that it took the user to figure out the right color
+else: ## using this statement once all the user has taken all of their tries
+  print(colorama.Fore.WHITE,"Sorry, you are not able to guess the right color.")
+
