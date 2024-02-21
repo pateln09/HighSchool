@@ -14,41 +14,41 @@ public class DijkstraAlgorithm {
 		
 		int index = 0;
 		
+		ArrayList <String> list = new ArrayList<String>();
+		
 		int tripsCount = 0;
 		while(scan.hasNext()) {
 			String left = scan.next();
 			String right = scan.next();
 			int price = scan.nextInt();
 			
-			if (!map.containsKey(left))
+			if (!map.containsKey(left)) {
 				map.put(left, index++);
+				list.add(left);
+			}
 			
-			if (!map.containsKey(right))
+			if (!map.containsKey(right)) {
 				map.put(right, index++);
+				list.add(right);
+			}
 			
 			adj[map.get(left)][map.get(right)] = price;
 			adj[map.get(right)][map.get(left)] = price;
 			
 			
-			tripsCount++;
+		
+			
 		}
 		int len = index;
-		
-		int dis = 0;
-		while(tripsCount -- > 0){
-			String cityOne = scan.next();
-			String cityTwo = scan.next();
-			int p = scan.nextInt();
-			
-			
-			dis+=solve(adj, map.get(cityOne), map.get(cityTwo), len, map.get(cityTwo));
-		
+		int sum = 0;
+		for (int i = 0; i < list.size(); i++) {
+			String cityOne = "Dallas";
+			String cityTwo = list.get(i);
+			if (!cityTwo.equals("Dallas"))
+				sum += solve(adj, map.get(cityOne), map.get(cityTwo), len, map.get(cityTwo));
 		}
-		System.out.println(dis);
-		
-		
-		
-		
+		System.out.println(sum);
+
 	}
 	
 	static int solve(int[][] adj, int cityOne, int cityTwo, int len, int goal) {
